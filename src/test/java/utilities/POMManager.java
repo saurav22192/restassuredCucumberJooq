@@ -10,22 +10,24 @@ public class POMManager {
     private  SearchPage searchPage;
     public POMManager(WebDriver driver){
         this.driver = driver;
-    }
-
-    public HomePage getHomePage()
-    {
         if(homePage==null)
         {
             homePage = new HomePage(driver);
         }
-        return homePage;
-    }
-    public SearchPage getSearchPage()
-    {
         if(searchPage==null)
         {
             searchPage = new SearchPage(driver);
         }
+    }
+
+    public HomePage getHomePage()
+    {
+
+        return homePage;
+    }
+    public SearchPage getSearchPage()
+    {
+
         return searchPage;
     }
 }

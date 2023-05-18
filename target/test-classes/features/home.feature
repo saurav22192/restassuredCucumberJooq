@@ -1,5 +1,5 @@
 Feature: homepage
-@HomePage
+@HomePage @xyz
 Scenario: Validating the homepage
 Given User opens the google website
 When  User is on home page
