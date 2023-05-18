@@ -17,8 +17,35 @@
                     <target>8</target>
                 </configuration>
             </plugin>
+<!--            <plugin>-->
+<!--                <groupId>net.masterthought</groupId>-->
+<!--                <artifactId>cucumber-reporting</artifactId>-->
+<!--                <version>5.7.5</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>execution</id>-->
+<!--                        <phase>verify</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>generate</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <projectName>cucumberReporting</projectName>-->
+<!--                            <skip>false</skip>-->
+<!--                            <outputDirectory>${project.build.directory}</outputDirectory>-->
+<!--                            <inputDirectory>${project.build.directory}</inputDirectory>-->
+<!--                            <jsonFiles>-->
+<!--                                <param>**/*.json</param>-->
+<!--                            </jsonFiles>-->
+<!--                            <mergeFeaturesById>false</mergeFeaturesById>-->
+<!--                            <mergeFeaturesWithRetest>false</mergeFeaturesWithRetest>-->
+<!--                            <checkBuildResult>false</checkBuildResult>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
         </plugins>
     </build>
+
     <dependencies>
 
     <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-picocontainer -->
@@ -40,6 +67,12 @@
             <artifactId>webdrivermanager</artifactId>
             <version>5.3.3</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting -->
+<!--        <dependency>-->
+<!--            <groupId>net.masterthought</groupId>-->
+<!--            <artifactId>cucumber-reporting</artifactId>-->
+<!--            <version>5.7.5</version>-->
+<!--        </dependency>-->
 
     <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
     <dependency>
@@ -50,7 +83,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
@@ -61,7 +94,6 @@
             <scope>test</scope>
         </dependency>
 
-
     </dependencies>
-    
+
 </project>

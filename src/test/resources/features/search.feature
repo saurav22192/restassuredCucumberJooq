@@ -1,6 +1,6 @@
 
 Feature: SearchResults
-  @SearchResults
+  @SearchResults @xyz
 Scenario: Validating the search results
 Given User is on google home page
 When User enters search keyword "Roses"
