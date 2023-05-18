@@ -18,6 +18,6 @@ public class Hooks {
 //
 	@After
     public void afterScenario(){
-        context.tearDown();
+        context.webDriverManager.tearDown();
     }
 }

@@ -11,12 +11,12 @@ public class HomeStep {
     public HomeStep(Context context)
     {
         this.context = context;
-        homePage = context.getHomePage();
+        homePage = context.pageObjectManager.getHomePage();
     }
 
     @Given("User opens the google website")
     public void user_opens_the_google_website() {
-        context.openBaseURL();
+        context.webDriverManager.openBaseURL();
         System.out.println("User opens the google website\n");
     }
 

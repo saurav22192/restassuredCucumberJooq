@@ -1,36 +1,17 @@
 package utilities;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import base.base;
 import pageObjects.HomePage;
 import pageObjects.SearchPage;
 
-public class Context extends base {
-
-    private  HomePage homePage;
-    private  SearchPage searchPage;
-    public Context()
+public class Context  {
+    public DriverManager webDriverManager;
+    public POMManager pageObjectManager;
+     public Context()
     {
-        setup();
+       webDriverManager = new DriverManager();
+       pageObjectManager = new POMManager(webDriverManager.getDriver());
     }
 
-    public WebDriver getDriver()
-    {
-        return driver;
-    }
-    public HomePage getHomePage()
-    {
-        if(homePage==null)
-        {
-            homePage = new HomePage(driver);
-        }
-        return homePage;
-    }
-    public SearchPage getSearchPage()
-    {
-        if(searchPage==null)
-        {
-            searchPage = new SearchPage(driver);
-        }
-        return searchPage;
-    }
 }
