@@ -19,13 +19,13 @@ public class SearchStep {
     public SearchStep(Context context)
     {
         this.context = context;
-        searchPage = context.pageObjectManager.getSearchPage();
-        homePage = context.pageObjectManager.getHomePage();
+        searchPage = context.getPageObjectManager().getSearchPage();
+        homePage = context.getPageObjectManager().getHomePage();
     }
 
     @Given("User is on google home page")
     public void User_is_on_google_home_page() {
-        context.webDriverManager.openBaseURL();
+        context.getWebDriverManager().openBaseURL();
         System.out.println("User is on google home page\n");
 
     }
