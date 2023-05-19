@@ -10,7 +10,7 @@ import org.testng.annotations.DataProvider;
         plugin= {"pretty", "html:test-output","json:target/cucumber/cucumber.json", "html:target/cucumber-html-report"},
         monochrome = true,
 //dryRun = true,
-        tags = "@ui"
+        tags = "@test_rest"
 )
 
 public class TestNgRunner extends AbstractTestNGCucumberTests {

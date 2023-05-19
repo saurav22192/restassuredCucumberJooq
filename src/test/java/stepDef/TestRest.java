@@ -14,9 +14,9 @@ import java.util.List;
 import java.util.Map;
 
 public class TestRest {
-    private static final String USER_ID = "9b5f49ab-eea9-45f4-9d66-bcf56a531b85";
-    private static final String USERNAME = "TOOLSQA-Test";
-    private static final String PASSWORD = "Test@@123";
+    private static final String USER_ID = "2e0ebcb9-b359-4664-a453-66d7e4093b4b";
+    private static final String USERNAME = "abcd1213";
+    private static final String PASSWORD = "A@123456aa";
     private static final String BASE_URL = "https://bookstore.toolsqa.com";
 
     private static String token;
