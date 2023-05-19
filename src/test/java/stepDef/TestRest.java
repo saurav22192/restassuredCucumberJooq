@@ -4,6 +4,9 @@ import POJOs.AuthUser;
 import POJOs.book;
 import POJOs.collectionOfIsbns;
 import POJOs.getAllBooks;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.JsonPath;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -63,7 +66,7 @@ public class TestRest {
     }
 
     @Given("A list of books are available")
-    public void listOfBooksAreAvailable() {
+    public void listOfBooksAreAvailable() throws JsonProcessingException {
 //        RestAssured.baseURI = BASE_URL;
 //        RequestSpecification request = given();
 //        response = request.get("/BookStore/v1/Books");
@@ -85,10 +88,21 @@ public class TestRest {
 
         JSONArray ja1 = JsonPath.read(response.asString(),"$..books[0].isbn");
         bookId = ja1.get(0).toString();
+
+        //deserilization of response object
         getAllBooks myPojo = response
                 .getBody()
                 .as(getAllBooks.class);
         Assert.assertEquals(ja.size(),myPojo.getBooks().size());
+
+        //comparing two jsons
+        ObjectMapper objectMapper = new ObjectMapper();
+        JsonNode jsonNode1 = objectMapper.readTree(jsonString);
+        JsonNode jsonNode2 = objectMapper.readTree(jsonString);
+
+        // Compare two json using Jackson and displaying the result
+        System.out.println(jsonNode1.equals(jsonNode2));
+
     }
 
     @When("I add a book to my reading list")
