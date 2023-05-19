@@ -6,18 +6,22 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObjects.HomePage;
 import utilities.Context;
+import utilities.POMManager;
+
 public class HomeStep {
     Context context;
     HomePage homePage;
     public HomeStep(Context context)
     {
         this.context = context;
+        context.getWebDriverManager().createDriver();
+        context.setPageObjectManager(new POMManager(context.getWebDriverManager().getDriver()));
         homePage = context.getPageObjectManager().getHomePage();
     }
-    @BeforeAll
-    public static void xyz(){
-        System.out.println("xx");
-        }
+//    @BeforeAll
+//    public static void xyz(){
+//        System.out.println("xx");
+//        }
     @Given("User opens the google website")
     public void user_opens_the_google_website() {
         context.getWebDriverManager().openBaseURL();

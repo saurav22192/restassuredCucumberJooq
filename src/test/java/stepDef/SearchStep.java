@@ -8,6 +8,7 @@ import org.junit.Assert;
 import pageObjects.HomePage;
 import pageObjects.SearchPage;
 import utilities.Context;
+import utilities.POMManager;
 
 
 public class SearchStep {
@@ -18,9 +19,13 @@ public class SearchStep {
 
     public SearchStep(Context context)
     {
-        this.context = context;
-        searchPage = context.getPageObjectManager().getSearchPage();
-        homePage = context.getPageObjectManager().getHomePage();
+        {
+            this.context = context;
+            context.getWebDriverManager().createDriver();
+            context.setPageObjectManager(new POMManager(context.getWebDriverManager().getDriver()));
+            homePage = context.getPageObjectManager().getHomePage();
+            searchPage = context.getPageObjectManager().getSearchPage();
+        }
     }
 
     @Given("User is on google home page")

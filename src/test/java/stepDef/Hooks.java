@@ -11,26 +11,34 @@ public class Hooks {
     {
         this.context = context;
     }
-//	@Before
-//    public void beforeScenario(){
-//        System.out.println("This will run before the Scenario");
-//    }
-//'
+    private static boolean homeFeatureRunning = false;
+	@Before
+    public void beforeScenario(Scenario s){
+        if(!homeFeatureRunning && s.getName().contains("homepage 1")){
+            homeFeatureRunning = true;
+            System.out.println("Home feature running");
+        }
+    }
 
 
-    @AfterStep
+
+    @AfterStep("@ui")
     public void addScreenshot(Scenario scenario) {
 
 //        context.getWebDriverManager()WebDriver driver =  setUp.baseTest.WebDriverManager();
-//        if(scenario.isFailed()) {
+        if(scenario.isFailed()) {
             final byte[] screenshot = ((TakesScreenshot) context.getWebDriverManager().getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", "image");
-//        }
+        }
 
     }
 
-	@After
-    public void afterScenario(){
+	@After("@ui")
+    public void afterScenario(Scenario s){
         context.getWebDriverManager().tearDown();
+        if(homeFeatureRunning && s.getName().contains("homepage 1")){
+            homeFeatureRunning = true;
+            System.out.println("Home feature stopped");
+        }
     }
 }

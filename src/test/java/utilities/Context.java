@@ -12,7 +12,8 @@ public class Context  {
     public Context()
     {
        webDriverManager = new DriverManager();
-       pageObjectManager = new POMManager(webDriverManager.getDriver());
+//       System.out.println("i am here");
+//       pageObjectManager = new POMManager(webDriverManager.getDriver());
        scenarioContext = new ScenarioContext();
     }
 
@@ -22,6 +23,10 @@ public class Context  {
 
         public POMManager getPageObjectManager() {
         return pageObjectManager;
+    }
+
+    public void setPageObjectManager(POMManager pm){
+        this.pageObjectManager=pm;
     }
 
         public ScenarioContext getScenarioContext() {
