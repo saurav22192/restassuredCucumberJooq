@@ -3,6 +3,7 @@ package stepDef;
 import POJOs.AuthUser;
 import POJOs.book;
 import POJOs.collectionOfIsbns;
+import POJOs.getAllBooks;
 import com.jayway.jsonpath.JsonPath;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -84,6 +85,10 @@ public class TestRest {
 
         JSONArray ja1 = JsonPath.read(response.asString(),"$..books[0].isbn");
         bookId = ja1.get(0).toString();
+        getAllBooks myPojo = response
+                .getBody()
+                .as(getAllBooks.class);
+        Assert.assertEquals(ja.size(),myPojo.getBooks().size());
     }
 
     @When("I add a book to my reading list")
