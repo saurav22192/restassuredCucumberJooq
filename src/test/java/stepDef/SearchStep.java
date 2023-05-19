@@ -32,7 +32,6 @@ public class SearchStep {
     public void User_is_on_google_home_page() {
         context.getWebDriverManager().openBaseURL();
         System.out.println("User is on google home page\n");
-
     }
     @When("User enters search keyword {string}")
     public void user_enters_search_keyword(String searchKey) {

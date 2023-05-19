@@ -10,6 +10,8 @@ Scenario: Validating the homepage 2
 Given User opens the google website
 When  User is on home page
 Then User should be able to enter the search key "Roses" in the search box
+#  //Serialization enables us to save the state of an object and recreate the object in a new location
+
 #Cucumber does not support Inheritance means it does not allow extending classes that contain Step Definitions or Hooks (@After, @Before, etc.). Now, Dependency Injection comes into the picture.
 #
 #In Cucumber, if we want to share the state between multiple-step definition files, we will need to use dependency injection (DI).
