@@ -1,5 +1,6 @@
 package stepDef;
 
+import io.cucumber.java.BeforeAll;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,7 +14,10 @@ public class HomeStep {
         this.context = context;
         homePage = context.getPageObjectManager().getHomePage();
     }
-
+    @BeforeAll
+    public static void xyz(){
+        System.out.println("xx");
+        }
     @Given("User opens the google website")
     public void user_opens_the_google_website() {
         context.getWebDriverManager().openBaseURL();

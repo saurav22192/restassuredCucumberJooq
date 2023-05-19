@@ -1,7 +1,6 @@
 package utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import base.base;
 import pageObjects.HomePage;
 import pageObjects.SearchPage;
 
