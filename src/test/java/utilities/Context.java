@@ -1,20 +1,17 @@
 package utilities;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WebDriver;
-import pageObjects.HomePage;
-import pageObjects.SearchPage;
 
 public class Context  {
     private DriverManager webDriverManager;
     private POMManager pageObjectManager;
-    public ScenarioContext scenarioContext;
-
+    private ScenarioContext scenarioContext;
+    private RestAssuredManager restAssuredManager;
     public Context()
     {
        webDriverManager = new DriverManager();
 //       System.out.println("i am here");
 //       pageObjectManager = new POMManager(webDriverManager.getDriver());
        scenarioContext = new ScenarioContext();
+       restAssuredManager = new RestAssuredManager();
     }
 
         public DriverManager getWebDriverManager() {
@@ -33,5 +30,8 @@ public class Context  {
         return scenarioContext;
     }
 
+    public RestAssuredManager getRestAssuredManager() {
+        return restAssuredManager;
+    }
 
 }
